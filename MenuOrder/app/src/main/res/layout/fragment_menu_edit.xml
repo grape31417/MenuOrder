@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bluedream.user.menuorder.MenuEdit">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="新增菜單"
+        android:textSize="30dp"/>
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:mtf_labelColor="#666">
+
+        <EditText
+            android:id="@+id/edtMenuName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="菜名"
+            android:textColor="#333"
+            android:textSize="15sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:mtf_labelColor="#666">
+
+        <EditText
+            android:id="@+id/edtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="價格"
+            android:textColor="#333"
+            android:textSize="15sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+    <Button
+        android:id="@+id/btnAddMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="新增" />
+
+</LinearLayout>

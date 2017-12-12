@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bluedream.user.menuorder.MainActivity">
+
+    <TextView
+        android:id="@+id/TxtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="歡迎使用 請選擇身分"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/btnCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="顧客點菜"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="123dp" />
+
+    <Button
+        android:id="@+id/btnClerk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="店員理單" />
+
+    <Button
+        android:id="@+id/btnManagement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="管理模式" />
+
+
+</LinearLayout>
