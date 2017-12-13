@@ -2,6 +2,7 @@ package com.bluedream.user.menuorder;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bluedream.user.menuorder.providers.MenuDataBase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnManagement;
     Dialog loginDlg;
     EditText mPassword;
+    SQLiteDatabase mMenuDB;
+    MenuDataBase MenuDataBase= new MenuDataBase(MainActivity.this);
 
 
 
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mMenuDB= MenuDataBase.OpenDatabase();
 
     }
 
@@ -61,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener EnterPassword =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String password = new dataChain().getMangerPassword();
+            String password = new dataChain(getApplicationContext()).getMangerPassword();
             if(mPassword.getText().toString().equals(password)) {
                 Intent it=new Intent();
                 it.setClass(MainActivity.this,ManagerMode.class);
@@ -82,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
-
+    @Override
+    protected void onDestroy() {
+        mMenuDB.close();
+        super.onDestroy();
+    }
 }

@@ -17,9 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ManagerMode"></activity>
-        <provider
-            android:authorities="com.bluedream.user.menuorder.providers.MenuContentProvider"
-            android:name=".providers.MenuContentProvider"/>
     </application>
 
 </manifest>

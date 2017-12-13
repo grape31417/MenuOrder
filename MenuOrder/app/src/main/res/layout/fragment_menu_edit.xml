@@ -53,4 +53,10 @@
         android:layout_gravity="center"
         android:text="新增" />
 
+    <Button
+        android:id="@+id/btnDeleteMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刪除整份菜單" />
+
 </LinearLayout>

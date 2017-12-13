@@ -18,8 +18,6 @@ public class ManagerMode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_mode);
         setScrowview ();
-        mContRes =getContentResolver();
-
     }
 
     public void setScrowview ()
