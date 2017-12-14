@@ -1,6 +1,7 @@
 package com.bluedream.user.menuorder;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
@@ -16,30 +17,42 @@ import static com.bluedream.user.menuorder.providers.MenuDataBase.DB_TABLE;
  */
 
 public class dataChain {
-    String mangerPassword = "admin";
     private ArrayList<Integer> Arr_ID = new ArrayList();
     private ArrayList<String> ArrName = new ArrayList();
     private ArrayList<Integer> ArrPrice = new ArrayList();
     private Context context;
     private SQLiteDatabase mMenuDB;
+    SharedPreferences mangerPassword;
+
 
     public dataChain(Context context) {
         this.context = context;
-        mMenuDB =new MenuDataBase(context).OpenDatabase();
     }
-
+    public dataChain (SharedPreferences mangerPassword)
+    {
+        this.mangerPassword=mangerPassword;
+    }
 
 
 
     public String getMangerPassword() {
-        return mangerPassword;
+        return mangerPassword.getString("mangerPassword","");
     }
 
-    public void setMangerPassword(String mangerPassword) {
-        this.mangerPassword = mangerPassword;
+    public void setMangerPassword(String Password) {
+        mangerPassword.edit().putString("mangerPassword",Password).commit();
+    }
+    public void setAnnouncemen(String Announcemen) {
+        mangerPassword.edit().putString("announcemen",Announcemen).commit();
+    }
+
+    public String getAnnouncemen() {
+        return mangerPassword.getString("announcemen","");
     }
 
     public ArrayList<Integer> getArr_ID() {
+        mMenuDB =new MenuDataBase(context).OpenDatabase();
+
         Arr_ID.clear();
 
         Cursor c = mMenuDB.query(true, DB_TABLE, new String[]{"_ID"}, null, null, null, null, null, null);
@@ -54,12 +67,14 @@ public class dataChain {
             }
 
         }
+        mMenuDB.close();
         c.close();
         return Arr_ID;
 }
 
 
     public ArrayList<String> getArrName() {
+        mMenuDB =new MenuDataBase(context).OpenDatabase();
         ArrName.clear();
         Cursor c = mMenuDB.query(true, DB_TABLE, new String[]{"name"}, null, null, null, null, null, null);
 
@@ -73,12 +88,14 @@ public class dataChain {
             }
 
         }
+        mMenuDB.close();
         c.close();
         return ArrName;
     }
 
 
     public ArrayList<Integer> getArrPrice() {
+        mMenuDB =new MenuDataBase(context).OpenDatabase();
         ArrPrice.clear();
         Cursor c = mMenuDB.query(true, DB_TABLE, new String[]{"price"}, null, null, null, null, null, null);
 
@@ -94,6 +111,7 @@ public class dataChain {
             }
         }
         c.close();
+        mMenuDB.close();
         return ArrPrice;
     }
 

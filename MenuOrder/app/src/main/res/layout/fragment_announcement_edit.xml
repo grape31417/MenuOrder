@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="新增菜單"
+        android:text="編輯公告"
         android:textSize="30dp" />
 
     <com.github.florent37.materialtextfield.MaterialTextField
@@ -23,60 +23,28 @@
         app:mtf_labelColor="#666">
 
         <EditText
-            android:id="@+id/edtMenuName"
+            android:id="@+id/edtAnnouncement"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="菜名"
+            android:hint="內文"
             android:textColor="#333"
             android:textSize="15sp" />
 
     </com.github.florent37.materialtextfield.MaterialTextField>
 
-    <com.github.florent37.materialtextfield.MaterialTextField
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:mtf_labelColor="#666">
-
-        <EditText
-            android:id="@+id/edtPrice"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="價格"
-            android:inputType="number"
-            android:textColor="#333"
-            android:textSize="15sp" />
-
-    </com.github.florent37.materialtextfield.MaterialTextField>
-
-
-    <com.github.florent37.materialtextfield.MaterialTextField
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:mtf_labelColor="#666">
-
-        <EditText
-            android:id="@+id/edtCost"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="成本"
-            android:inputType="number"
-            android:textColor="#333"
-            android:textSize="15sp" />
-
-    </com.github.florent37.materialtextfield.MaterialTextField>
 
 
     <Button
-        android:id="@+id/btnAddMenu"
+        android:id="@+id/btnEditAnnouncement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="新增" />
 
     <Button
-        android:id="@+id/btnDeleteMenu"
+        android:id="@+id/btnView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="刪除整份菜單" />
+        android:text="預覽公告" />
 
 </LinearLayout>

@@ -23,8 +23,7 @@ public class MenuDataBase {
     }
 
     public SQLiteDatabase OpenDatabase() {
-        MenuDbOpenHelper SQLiteDatabaseOpenHelper =
-                new MenuDbOpenHelper(context, DB_FILE, null, 1);
+        MenuDbOpenHelper SQLiteDatabaseOpenHelper = new MenuDbOpenHelper(context, DB_FILE, null, 1);
         mMenuDb = SQLiteDatabaseOpenHelper.getWritableDatabase();
 
         Cursor cursor = mMenuDb.rawQuery(
@@ -36,7 +35,9 @@ public class MenuDataBase {
                 mMenuDb.execSQL("CREATE TABLE " + DB_TABLE + " (" +
                         "_id INTEGER PRIMARY KEY," +
                         "name TEXT NOT NULL," +
-                        "price INTEGER NOT NULL);");
+                        "price INTEGER NOT NULL,"+
+                        "cost INTEGER NOT NULL,"+
+                        "sales INTEGER NOT NULL);");
             cursor.close();
         }
 
@@ -47,13 +48,16 @@ public class MenuDataBase {
         mMenuDb.close();
     }
 
-    public Cursor query(boolean _id, boolean name, boolean price) {
-        String id = "", Name = "", Price = "";
+    public Cursor query(boolean _id, boolean name, boolean price,boolean cost,boolean sales) {
+        String id = "", Name = "", Price = "",Cost="",Sales="'";
         if (_id == true) id = "_id";
         if (name == true) Name = "name";
         if (price == true) Price = "price";
+        if (cost == true) Cost = "cost";
+        if (sales == true) Sales = "sales";
 
-        Cursor c = mMenuDb.query(true, DB_TABLE, new String[]{id, Name, Price}, null, null, null, null, null, null);
+
+        Cursor c = mMenuDb.query(true, DB_TABLE, new String[]{id, Name, Price,Cost,Sales}, null, null, null, null, null, null);
         return c;
     }
 

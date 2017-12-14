@@ -41,6 +41,13 @@ public class MenuEdit extends Fragment {
     @BindView(R.id.btnDeleteMenu)
     Button btnDeleteMenu;
     SQLiteDatabase mMenuDB;
+    @BindView(R.id.edtCost)
+    EditText edtCost;
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 
     public MenuEdit() {
         // Required empty public constructor
@@ -53,8 +60,22 @@ public class MenuEdit extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        mMenuDB =new MenuDataBase(getActivity()).OpenDatabase();
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MenuCost menuCost =new MenuCost();
+        menuCost.onPause();
+        announcementEdit announcementEdit =new announcementEdit();
+        announcementEdit.onPause();
+        ManagerPasswordChange ManagerPasswordChange =new ManagerPasswordChange();
+        ManagerPasswordChange.onPause();
+        salecount salecount =new salecount();
+        salecount.onPause();
+        Menu Menu =new Menu();
+        Menu.onPause();
     }
 
     @Override
@@ -65,20 +86,22 @@ public class MenuEdit extends Fragment {
 
     @OnClick(R.id.btnAddMenu)
     public void onViewClickedbtnAddMenu() {
-        if(edtMenuName.getText().toString().equals("")||edtPrice.getText().toString().equals("")) {
-            Toast.makeText(getContext(),"有欄位為空",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
+        mMenuDB = new MenuDataBase(getActivity()).OpenDatabase();
+        if (edtMenuName.getText().toString().equals("") || edtPrice.getText().toString().equals("") || edtCost.getText().toString().equals("")) {
+            Toast.makeText(getContext(), "有欄位為空", Toast.LENGTH_LONG).show();
+        } else {
             ContentValues newRow = new ContentValues();
             newRow.put("name", edtMenuName.getText().toString());
             newRow.put("price", Integer.valueOf(edtPrice.getText().toString()));
+            newRow.put("cost", Integer.valueOf(edtCost.getText().toString()));
+            newRow.put("sales",0);
             mMenuDB.insert(DB_TABLE, null, newRow);
         }
 
         edtMenuName.setText("");
         edtPrice.setText("");
-
+        edtCost.setText("");
+        mMenuDB.close();
 
     }
 
@@ -89,10 +112,10 @@ public class MenuEdit extends Fragment {
         mMenuDB.execSQL("CREATE TABLE " + DB_TABLE + " (" +
                 "_id INTEGER PRIMARY KEY," +
                 "name TEXT NOT NULL," +
-                "price INTEGER NOT NULL);");
-
+                "price INTEGER NOT NULL," +
+                "cost INTEGER NOT NULL," +
+                "sales INTEGER NOT NULL);");
     }
-
 
 
 }

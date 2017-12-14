@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bluedream.user.menuorder.salecount">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="收益統計"
+        android:textSize="30dp" />
+
+
+
+    <TextView
+        android:id="@+id/txtAllCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="總銷售額:2000元"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnClearSales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除所有銷售額" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="存成報表" />
+
+</LinearLayout>
