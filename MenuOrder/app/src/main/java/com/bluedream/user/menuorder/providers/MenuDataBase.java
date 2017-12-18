@@ -49,7 +49,7 @@ public class MenuDataBase {
     }
 
     public Cursor query(boolean _id, boolean name, boolean price,boolean cost,boolean sales) {
-        String id = "", Name = "", Price = "",Cost="",Sales="'";
+        String id = "", Name = "", Price = "",Cost="",Sales="";
         if (_id == true) id = "_id";
         if (name == true) Name = "name";
         if (price == true) Price = "price";
@@ -57,7 +57,7 @@ public class MenuDataBase {
         if (sales == true) Sales = "sales";
 
 
-        Cursor c = mMenuDb.query(true, DB_TABLE, new String[]{id, Name, Price,Cost,Sales}, null, null, null, null, null, null);
+        Cursor c = mMenuDb.query(true, DB_TABLE, new String[]{id, Name,Price,Cost,Sales}, null, null, null, null, null, null);
         return c;
     }
 

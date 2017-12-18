@@ -50,7 +50,7 @@ public class salecount extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_salecount, container, false);
         unbinder = ButterKnife.bind(this, view);
-        getAllmoney();
+
 
         return view;
     }
@@ -66,7 +66,11 @@ public class salecount extends Fragment {
         } else {
             c.moveToFirst();
             for (int i = 1; i <= c.getCount(); i++) {
-                getAllMoney=getAllMoney+((c.getInt(2) - c.getInt(3)) * c.getInt(4));
+                int sale =c.getInt(4);
+                int price=c.getInt(2);
+                int cost =c.getInt(3);
+                int getmoney = (price-cost)*sale;
+                getAllMoney=getAllMoney+getmoney;
                 c.moveToNext();
             }
         }
@@ -87,7 +91,7 @@ public class salecount extends Fragment {
         MenuEdit.onPause();
         Menu Menu =new Menu();
         Menu.onPause();
-
+        getAllmoney();
         txtAllCount.setText("總銷售額:"+getAllMoney+"元");
 
     }

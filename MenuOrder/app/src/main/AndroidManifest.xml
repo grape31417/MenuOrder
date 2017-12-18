@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManagerMode"></activity>
+        <activity android:name=".ManagerMode" />
+        <activity android:name=".customeraActivity" />
+        <activity android:name=".ClerkActivity"></activity>
     </application>
 
 </manifest>

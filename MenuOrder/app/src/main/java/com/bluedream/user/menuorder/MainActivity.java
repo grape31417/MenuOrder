@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnCustomer:
+                Intent it=new Intent();
+                it.setClass(MainActivity.this,customeraActivity.class);
+                startActivity(it);
                 break;
             case R.id.btnClerk:
                 break;
